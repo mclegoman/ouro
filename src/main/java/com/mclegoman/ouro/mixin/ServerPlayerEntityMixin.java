@@ -8,6 +8,7 @@
 package com.mclegoman.ouro.mixin;
 
 import com.mclegoman.ouro.entity.OuroPlayer;
+import com.mclegoman.ouro.entity.UsedRecipe;
 import com.mclegoman.ouro.entity.UsedRecipeData;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.*;
@@ -78,8 +79,7 @@ public class ServerPlayerEntityMixin implements OuroPlayer {
 		ouro$addUsedRecipe(recipeId, new UsedRecipeData());
 	}
 	public boolean ouro$canCraft(Identifier recipeId) {
-		// We check if the recipe either hasn't been used, or is set to less than 1 use (this could be modified using a config/gamerule in future).
-		return this.ouro$getCrafted().get(recipeId) == null || this.ouro$getCrafted().get(recipeId).getCount() < 1;
+		return UsedRecipe.canCraft(recipeId, this.ouro$getCrafted());
 	}
 	public Map<Identifier, UsedRecipeData> ouro$getCrafted() {
 		return this.ouro$usedRecipes;
