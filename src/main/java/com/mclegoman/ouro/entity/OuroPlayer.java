@@ -9,6 +9,9 @@ package com.mclegoman.ouro.entity;
 
 import net.minecraft.util.Identifier;
 
+import java.util.Map;
+
 public interface OuroPlayer {
+	Map<Identifier, UsedRecipeData> ouro$getCrafted();
 	boolean ouro$canCraft(Identifier recipeId);
 }
