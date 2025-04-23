@@ -55,7 +55,6 @@ public class ServerPlayerEntityMixin implements OuroPlayer {
 	@Unique
 	private void ouro$addUsedRecipe(Identifier recipeId) {
 		if (!this.ouro$usedRecipes.contains(recipeId)) this.ouro$usedRecipes.add(recipeId);
-		System.out.println("DEBUG: " + this.ouro$usedRecipes);
 	}
 	@Unique
 	private void ouro$addUsedRecipe(String recipeId) {
