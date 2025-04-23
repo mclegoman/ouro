@@ -1,0 +1,23 @@
+{
+	"schemaVersion": 1,
+	"id": "ouro",
+	"version": "${version}",
+	"name": "OnlyUseRecipeOnce",
+	"description": "Prevents players from using crafting recipes more than once.",
+	"authors": [
+		"dannytaylor"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/ouro",
+		"sources": "https://github.com/mclegoman/ouro"
+	},
+	"license": "LGPL-3.0-or-later",
+	"icon": "assets/ouro/icon.png",
+	"environment": "*",
+	"mixins": [
+		"onlyuserecipeonce.mixins.json"
+	],
+	"depends": {
+		"minecraft": "~1.21.5"
+	}
+}

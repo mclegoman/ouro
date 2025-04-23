@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "com.mclegoman.ouro.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"CraftingResultInventoryMixin",
+		"ServerPlayerEntityMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
