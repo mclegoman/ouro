@@ -13,7 +13,8 @@ public class OuroConfig {
 	protected static SimpleConfig config;
 	protected static ConfigProvider configProvider;
 	public static int getUses(String recipeId) {
-		if (!configProvider.contains(recipeId)) configProvider.add(recipeId, 1);
+		if (!configProvider.contains("*")) configProvider.add("*", 1);
+		if (!configProvider.contains(recipeId)) configProvider.add(recipeId, config.getOrDefault("*", 1));
 		return config.getOrDefault(recipeId, 1);
 	}
 	static {
