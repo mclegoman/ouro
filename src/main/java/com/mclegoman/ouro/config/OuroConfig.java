@@ -10,9 +10,13 @@ package com.mclegoman.ouro.config;
 import com.mclegoman.ouro.simpleconfig.SimpleConfig;
 
 public class OuroConfig {
-	private SimpleConfig values = SimpleConfig.of("ouro").request();
-	public static OuroConfig config = new OuroConfig();
+	protected static SimpleConfig config;
+	protected static ConfigProvider configProvider;
 	public static int getUses(String recipeId) {
-		return config.values.getOrDefault(recipeId, 1);
+		if (!configProvider.contains(recipeId)) configProvider.add(recipeId, 1);
+		return config.getOrDefault(recipeId, 1);
+	}
+	static {
+		config = SimpleConfig.of("ouro").provider(configProvider = new ConfigProvider()).request();
 	}
 }
