@@ -14,6 +14,7 @@ import java.util.Map;
 
 public class UsedRecipe {
 	public static boolean canCraft(Identifier recipeId, Map<Identifier, UsedRecipeData> usedRecipes) {
-		return usedRecipes.get(recipeId) == null || usedRecipes.get(recipeId).getCount() < OuroConfig.getUses(recipeId.toString()) || OuroConfig.getUses(recipeId.toString()) < 0;
+		int maxUses = OuroConfig.getUses(recipeId.toString());
+		return (usedRecipes.get(recipeId) == null || usedRecipes.get(recipeId).getCount() < maxUses || maxUses < 0) && maxUses != 0;
 	}
 }
