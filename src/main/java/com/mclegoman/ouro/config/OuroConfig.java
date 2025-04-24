@@ -15,7 +15,7 @@ public class OuroConfig {
 	public static int getUses(String recipeId) {
 		if (!configProvider.contains("*")) configProvider.add("*", 1);
 		if (!configProvider.contains(recipeId)) configProvider.add(recipeId, config.getOrDefault("*", 1));
-		return config.getOrDefault(recipeId, 1);
+		return config.getOrDefault(recipeId, config.getOrDefault("*", 1));
 	}
 	static {
 		config = SimpleConfig.of("ouro").provider(configProvider = new ConfigProvider()).request();
