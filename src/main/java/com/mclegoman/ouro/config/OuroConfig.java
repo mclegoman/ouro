@@ -13,9 +13,12 @@ public class OuroConfig {
 	protected static SimpleConfig config;
 	protected static ConfigProvider configProvider;
 	public static int getUses(String recipeId) {
-		if (!configProvider.contains("*")) configProvider.add("*", 1);
-		if (!configProvider.contains(recipeId)) configProvider.add(recipeId, config.getOrDefault("*", 1));
-		return config.getOrDefault(recipeId, config.getOrDefault("*", 1));
+		if (recipeId.equals("*")) return get(recipeId, 1);
+		return get(recipeId, get("*", 1));
+	}
+	public static int get(String id, int defaultValue) {
+		if (!configProvider.contains(id)) configProvider.add(id, defaultValue);
+		return config.getOrDefault(id, defaultValue);
 	}
 	static {
 		config = SimpleConfig.of("ouro").provider(configProvider = new ConfigProvider()).request();
