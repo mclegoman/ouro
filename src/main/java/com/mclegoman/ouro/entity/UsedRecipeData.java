@@ -7,9 +7,13 @@
 
 package com.mclegoman.ouro.entity;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+
 import java.util.function.Function;
 
 public class UsedRecipeData {
+	public static final Codec<UsedRecipeData> codec = RecordCodecBuilder.create(instance -> instance.group(Codec.INT.fieldOf("count").forGetter(UsedRecipeData::getCount)).apply(instance, UsedRecipeData::new));
 	private int count;
 	public UsedRecipeData() {
 		this.count = 1;

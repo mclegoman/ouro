@@ -8,12 +8,11 @@
 package com.mclegoman.ouro.entity;
 
 import com.mclegoman.ouro.config.OuroConfig;
-import net.minecraft.util.Identifier;
-
 import java.util.Map;
+import net.minecraft.resources.ResourceLocation;
 
 public class UsedRecipe {
-	public static boolean canCraft(Identifier recipeId, Map<Identifier, UsedRecipeData> usedRecipes) {
+	public static boolean canCraft(ResourceLocation recipeId, Map<ResourceLocation, UsedRecipeData> usedRecipes) {
 		int maxUses = OuroConfig.getUses(recipeId.toString());
 		return (usedRecipes.get(recipeId) == null || usedRecipes.get(recipeId).getCount() < maxUses || maxUses < 0) && maxUses != 0;
 	}

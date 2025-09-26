@@ -9,13 +9,14 @@
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/mod/ouro",
-		"sources": "https://github.com/mclegoman/ouro"
+		"sources": "https://github.com/mclegoman/ouro",
+		"issues": "https://github.com/mclegoman/ouro/issues"
 	},
 	"license": "LGPL-3.0-or-later",
-	"icon": "assets/ouro/icon.png",
+	"icon": "icon.png",
 	"environment": "*",
 	"mixins": [
-		"onlyuserecipeonce.mixins.json"
+		"ouro.mixins.json"
 	],
 	"depends": {
 		"minecraft": "~1.21.5"

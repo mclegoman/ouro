@@ -1,0 +1,30 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+issueTrackerURL = "https://github.com/mclegoman/ouro/issues"
+license = "LGPL-3.0-or-later"
+
+[[mods]]
+modId = "ouro"
+version = "${version}"
+displayName = "OnlyUseRecipeOnce"
+displayURL = "https://modrinth.com/mod/ouro"
+logoFile = "icon.png"
+authors = "dannytaylor"
+description = '''Prevents players from using crafting recipes more than once.'''
+
+[[dependencies.ouro]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.8,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.ouro]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.8,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[mixins]]
+config = "ouro.mixins.json"
